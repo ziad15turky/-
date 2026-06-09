@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مستشار الملهم التفاعلي - ليالي الامتحان 2026</title>
+    <title>جدول ليالي الامتحان - الملهم لؤي العربي</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght=400;700;900&display=swap');
         
         * {
             box-sizing: border-box;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         body {
@@ -23,314 +23,380 @@
             min-height: 100vh;
         }
 
-        .a4-page {
-            width: 210mm;
-            min-height: 297mm;
-            background: radial-gradient(circle at center, #423027 0%, #170e0c 100%); 
-            color: #fff;
-            padding: 40px;
+        .poster-container {
+            width: 100%;
+            max-width: 800px;
+            background: radial-gradient(circle at 50% 30%, #463126 0%, #170d0b 100%); 
+            color: #ffffff;
+            padding: 45px;
+            border: 3px solid #d1a153; 
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 40px rgba(209, 161, 83, 0.1);
             position: relative;
-            border: 4px solid #c99a49; 
-            box-shadow: 0 0 40px rgba(0,0,0,0.8);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            overflow: hidden;
         }
 
-        /* توهج اللمبة التفاعلي */
-        .a4-page::before {
+        .poster-container::before {
             content: '';
             position: absolute;
-            top: -5%;
-            right: 15%;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(241, 196, 15, 0.15) 0%, rgba(0,0,0,0) 70%);
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(209, 161, 83, 0.25) 0%, rgba(0,0,0,0) 70%);
             pointer-events: none;
+            z-index: 1;
         }
 
         .header {
             text-align: center;
-            border-bottom: 2px dashed #c99a49;
-            padding-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 35px;
         }
 
-        .header .logo-text {
-            font-size: 38px;
+        .header .main-title {
+            font-size: 42px;
             font-weight: 900;
             color: #ffffff;
             margin: 0;
-            text-shadow: 0 3px 12px rgba(0,0,0,0.6);
+            text-shadow: 0 4px 15px rgba(0,0,0,0.7);
+            letter-spacing: 1px;
         }
 
-        .header .sub-text {
-            font-size: 22px;
-            color: #c99a49; 
+        .header .sub-title {
+            font-size: 24px;
+            color: #d1a153; 
             margin: 5px 0 0 0;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
 
-        /* شريط الإنجاز التفاعلي */
-        .progress-container {
-            margin: 25px 0 15px 0;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid rgba(201, 154, 73, 0.2);
+        .progress-section {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(209, 161, 83, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
         }
 
-        .progress-label {
+        .progress-info {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
-            color: #e6dad1;
+            color: #e3d5ca;
+            margin-bottom: 10px;
         }
 
-        .progress-bar-bg {
-            background: rgba(0, 0, 0, 0.5);
-            height: 12px;
-            border-radius: 10px;
+        .progress-bg {
+            background: #110a08;
+            height: 14px;
+            border-radius: 20px;
             overflow: hidden;
-            border: 1px solid rgba(201, 154, 73, 0.3);
+            border: 1px solid rgba(209, 161, 83, 0.3);
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
         }
 
-        .progress-bar-fill {
-            background: linear-gradient(90deg, #c99a49, #f1c40f);
+        .progress-fill {
+            background: linear-gradient(90deg, #b08237, #d1a153, #fcd68a);
             height: 100%;
             width: 0%;
-            box-shadow: 0 0 10px #f1c40f;
+            box-shadow: 0 0 15px rgba(209, 161, 83, 0.6);
+            border-radius: 20px;
         }
 
-        .intro {
+        .intro-box {
+            font-size: 16px;
+            line-height: 1.8;
+            text-align: justify;
+            color: #f5eae2;
             background: rgba(255, 255, 255, 0.03);
-            border-right: 5px solid #c99a49;
+            border-right: 5px solid #d1a153;
             padding: 15px 20px;
             border-radius: 4px;
-            font-size: 15px;
-            line-height: 1.7;
-            text-align: justify;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
         }
 
-        /* الجدول التفاعلي */
         table {
             width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            overflow: hidden;
+            border-collapse: separate;
+            border-spacing: 0 10px; 
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
         }
 
         th {
-            background-color: #c99a49;
-            color: #1a100e;
-            padding: 15px;
-            font-size: 17px;
+            background-color: #d1a153;
+            color: #170d0b;
+            padding: 18px;
+            font-size: 18px;
             font-weight: 700;
+            border-radius: 6px;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.3);
         }
 
-        td {
-            padding: 15px;
-            border-bottom: 1px solid rgba(201, 154, 73, 0.15);
-            text-align: center;
-            font-size: 15px;
+        tr {
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             cursor: pointer;
         }
 
-        tr.completed td {
-            color: #8c827b !important;
-            text-decoration: line-through;
-            background-color: rgba(0, 0, 0, 0.3);
+        tr:hover {
+            background: rgba(209, 161, 83, 0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
         }
 
-        tr.completed .highlight-page {
+        td {
+            padding: 18px;
+            text-align: center;
+            font-size: 16px;
+            border-top: 1px solid rgba(209, 161, 83, 0.1);
+            border-bottom: 1px solid rgba(209, 161, 83, 0.1);
+        }
+
+        td:first-child {
+            border-right: 1px solid rgba(209, 161, 83, 0.1);
+            border-radius: 0 8px 8px 0;
+        }
+
+        td:last-child {
+            border-left: 1px solid rgba(209, 161, 83, 0.1);
+            border-radius: 8px 0 0 8px;
+        }
+
+        tr.completed {
+            background: rgba(0, 0, 0, 0.4) !important;
+            opacity: 0.6;
+            transform: translateY(0) !important;
+        }
+
+        tr.completed td {
+            color: #8c8077 !important;
+            text-decoration: line-through;
+        }
+
+        tr.completed .page-tag {
             background: rgba(255,255,255,0.05);
-            border-color: #554c46;
-            color: #8c827b;
+            border-color: #4a3e37;
+            color: #8c8077;
             box-shadow: none;
         }
 
-        tr.completed .checkbox-custom {
-            background-color: #c99a49;
-            border-color: #c99a49;
+        tr.completed .custom-bullet {
+            background-color: #d1a153;
+            border-color: #d1a153;
+            box-shadow: 0 0 8px #d1a153;
         }
 
-        tr.completed .checkbox-custom::after {
+        tr.completed .custom-bullet::after {
             display: block;
         }
 
-        .highlight-day {
-            color: #c99a49;
+        .day-text {
+            color: #d1a153;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .highlight-page {
-            background: rgba(201, 154, 73, 0.12);
-            color: #fff;
-            padding: 3px 12px;
+        .page-tag {
+            background: rgba(209, 161, 83, 0.15);
+            color: #ffffff;
+            padding: 4px 15px;
             border-radius: 20px;
-            border: 1px solid #c99a49;
+            border: 1px solid #d1a153;
             font-weight: 700;
             display: inline-block;
-            box-shadow: 0 0 5px rgba(201, 154, 73, 0.2);
+            box-shadow: 0 0 8px rgba(209, 161, 83, 0.2);
         }
 
-        /* مربع الاختيار المخصص */
-        .checkbox-custom {
-            width: 18px;
-            height: 18px;
-            border: 2px solid #c99a49;
-            border-radius: 4px;
+        .custom-bullet {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #d1a153;
+            border-radius: 50%;
+            margin-left: 12px;
             display: inline-block;
-            vertical-align: middle;
-            margin-left: 10px;
             position: relative;
         }
 
-        .checkbox-custom::after {
-            content: '✓';
+        .custom-bullet::after {
+            content: '';
             position: absolute;
-            top: -4px;
-            right: 1px;
-            color: #1a100e;
-            font-size: 14px;
-            font-weight: 900;
+            top: 3px;
+            right: 3px;
+            width: 6px;
+            height: 6px;
+            background-color: #170d0b;
+            border-radius: 50%;
             display: none;
         }
 
-        .alert-box {
-            border: 1px dashed rgba(255,255,255,0.15);
-            background: rgba(230, 81, 0, 0.08);
-            border-right: 5px solid #ffb74d;
-            padding: 12px 15px;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        .motivation {
-            text-align: center;
-            font-size: 14px;
-            line-height: 1.6;
-            color: #e6dad1;
-            background: rgba(0,0,0,0.15);
-            padding: 18px;
-            border-radius: 8px;
-            border: 1px solid rgba(201, 154, 73, 0.1);
-        }
-
-        .footer {
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            padding-top: 15px;
+        .alert-panel {
+            background: rgba(211, 47, 47, 0.06);
+            border: 1px dashed rgba(209, 161, 83, 0.3);
+            border-right: 5px solid #d1a153;
+            padding: 15px 20px;
+            border-radius: 6px;
             font-size: 15px;
-            color: #c99a49;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .motivation-panel {
+            text-align: center;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #e8ded7;
+            background: rgba(0,0,0,0.3);
+            padding: 22px;
+            border-radius: 8px;
+            border: 1px solid rgba(209, 161, 83, 0.15);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-branding {
+            text-align: center;
+            border-top: 1px solid rgba(209, 161, 83, 0.2);
+            padding-top: 20px;
+            margin-top: 25px;
+            font-size: 16px;
+            color: #d1a153;
             font-weight: 700;
+            position: relative;
+            z-index: 2;
         }
 
         @media (max-width: 768px) {
-            body { padding: 5px; }
-            .a4-page { width: 100%; height: auto; padding: 20px; border-width: 2px; }
-            th, td { padding: 10px; font-size: 13px; }
-            .header .logo-text { font-size: 28px; }
+            body { padding: 10px; }
+            .poster-container { padding: 20px; }
+            th, td { padding: 12px; font-size: 14px; }
+            .header .main-title { font-size: 30px; }
             .header .sub-text { font-size: 18px; }
         }
     </style>
 </head>
 <body>
 
-<div class="a4-page">
+<div class="poster-container">
     
     <div class="header">
-        <div class="logo-text">الأستاذ لُؤي العَرَبِي</div>
-        <div class="sub-text">💡 ا لـ مُـ لـْ هِـ مْ 💡</div>
+        <div class="main-title">الأستاذ لُؤي العَرَبِي</div>
+        <div class="sub-title">💡 ا لـ مُـ لـْ هِـ مْ 💡</div>
     </div>
 
-    <div class="progress-container">
-        <div class="progress-label">
-            <span>معدل إنجازك للنماذج الشاملة:</span>
-            <span id="progress-text">0%</span>
+    <div class="progress-section">
+        <div class="progress-info">
+            <span>معدل استعدادك وحلّك للنماذج الشاملة:</span>
+            <span id="percent-counter">0%</span>
         </div>
-        <div class="progress-bar-bg">
-            <div class="progress-bar-fill" id="progress-bar"></div>
+        <div class="progress-bg">
+            <div class="progress-fill" id="progress-filler"></div>
         </div>
     </div>
 
-    <div class="intro">
-        📢 <strong>طلاب الثانوية العامة الأبطال..</strong> اضغط على أي نموذج بعد الانتهاء من حله لتتابع مستوى جاهزيتك. هدفنا خوض خمسة امتحانات شاملة لنصل لأعلى درجات الثقة بإذن الله.
+    <div class="intro-box">
+        📢 <strong>أبطال الثانوية العامة..</strong> اضغط على الصف المخصص لكل يوم بمجرد انتهائك من حل البوكلت، لتتابع قفزات إنجازك. تم تفعيل ميزة الحفظ التلقائي؛ إنجازك لن يختفي عند تحديث الصفحة!
     </div>
 
     <table>
         <thead>
             <tr>
                 <th style="width: 30%;">اليوم والتاريخ</th>
-                <th style="width: 50%;">المهمة المطلوب إنجازها (كتاب كيان)</th>
+                <th style="width: 50%;">المهمة المطلوبة (كتاب كيان)</th>
                 <th style="width: 20%;">الموضع</th>
             </tr>
         </thead>
         <tbody>
-            <tr onclick="toggleTask(this)">
-                <td class="highlight-day"><div class="checkbox-custom"></div>الثلاثاء 9/6/2026</td>
+            <tr data-id="day1" onclick="checkRow(this)">
+                <td><div class="day-text"><div class="custom-bullet"></div>الثلاثاء 9/6/2026</div></td>
                 <td>حل النموذج الاسترشادي الثالث (2025)</td>
-                <td><span class="highlight-page">ص 154</span></td>
+                <td><span class="page-tag">ص 154</span></td>
             </tr>
-            <tr onclick="toggleTask(this)">
-                <td class="highlight-day"><div class="checkbox-custom"></div>الأربعاء 10/6/2026</td>
+            <tr data-id="day2" onclick="checkRow(this)">
+                <td><div class="day-text"><div class="custom-bullet"></div>الأربعاء 10/6/2026</div></td>
                 <td>حل النموذج الاسترشادي الرابع (2025)</td>
-                <td><span class="highlight-page">ص 163</span></td>
+                <td><span class="page-tag">ص 163</span></td>
             </tr>
-            <tr onclick="toggleTask(this)">
-                <td class="highlight-day"><div class="checkbox-custom"></div>الخميس 11/6/2026</td>
+            <tr data-id="day3" onclick="checkRow(this)">
+                <td><div class="day-text"><div class="custom-bullet"></div>الخميس 11/6/2026</div></td>
                 <td>حل النموذج الاسترشادي الخامس (2025)</td>
-                <td><span class="highlight-page">ص 181</span></td>
+                <td><span class="page-tag">ص 181</span></td>
             </tr>
-            <tr onclick="toggleTask(this)">
-                <td class="highlight-day"><div class="checkbox-custom"></div>الجمعة 12/6/2026</td>
+            <tr data-id="day4" onclick="checkRow(this)">
+                <td><div class="day-text"><div class="custom-bullet"></div>الجمعة 12/6/2026</div></td>
                 <td>حل النموذج الاسترشادي السادس (2025)</td>
-                <td><span class="highlight-page">ص 190</span></td>
+                <td><span class="page-tag">ص 190</span></td>
             </tr>
-            <tr onclick="toggleTask(this)">
-                <td class="highlight-day"><div class="checkbox-custom"></div>السبت 13/6/2026</td>
+            <tr data-id="day5" onclick="checkRow(this)">
+                <td><div class="day-text"><div class="custom-bullet"></div>السبت 13/6/2026</div></td>
                 <td>حل النموذج الاسترشادي السابع (2025)</td>
-                <td><span class="highlight-page">ص 198</span></td>
+                <td><span class="page-tag">ص 198</span></td>
             </tr>
         </tbody>
     </table>
 
-    <div class="alert-box">
-        <strong>⚠️ تنبيه الملهم:</strong> إذا لم تُنهِ العدد الكافي من بوكليت كيان، يمكنك حل نموذج إضافي يوميًا بالتوازي مع مراجعة المواد الأخرى.
+    <div class="alert-panel">
+        <strong>⚠️ تنبيه مهم من المُلهم:</strong> أي طالب لم يُنهِ العدد الكافي من بوكليت كيان، يمكنه حل نموذج إضافي يوميًا بالتوازي مع مراجعة المواد الأخرى.
     </div>
 
-    <div class="motivation">
-        💪 <strong>تذكّروا دائمًا:</strong> الدرجات الكبيرة لا يصنعها الذكاء وحده، بل يصنعها الاستمرار والانضباط. نحن الآن في الأمتار الأخيرة، وكل نموذج ستحله اليوم قد يكون سببًا في سؤالٍ يأتيك غدًا داخل اللجنة.
-        <br><span style="color: #c99a49; display:inline-block; margin-top:5px;">أسأل الله أن يشرح صدوركم، ويثبت أذهانكم، ويرزقكم التفوق والدرجة التي تسعدكم. 🤲🌹</span>
+    <div class="motivation-panel">
+        💪 <strong>تذكّروا دائمًا:</strong> الدرجات الكبيرة لا يصنعها الذكاء وحده، بل يصنعها الاستمرار والانضباط. نحن الآن في الأمتار الأخيرة، وكل نموذج ستحله اليوم قد يكون سببًا في سؤالٍ يأتيك غدًا داخل اللجنة. واصلوا العمل حتى آخر لحظة، فالمجتهد لا يندم. 
+        <br><span style="color: #d1a153; display:inline-block; margin-top:6px; font-weight:700;">أسأل الله أن يشرح صدوركم، ويثبت أذهانكم، ويرزقكم التفوق الذي يسعدكم ويسعد أهلكم. 🤲🌹</span>
     </div>
 
-    <div class="footer">
-        🎯 الهدف واضح وثابت: الدرجة النهائية بإذن الله
+    <div class="footer-branding">
+        🎯 نبدأ من اليوم... والهدف واضح: الدرجة النهائية بإذن الله.
     </div>
 
 </div>
 
 <script>
-    function toggleTask(row) {
-        // إضافة أو إزالة كلاس المكتمل عند الضغط
-        row.classList.toggle('completed');
-        updateProgress();
+    // عند تحميل الصفحة، يتم قراءة البيانات المحفوظة مسبقاً
+    document.addEventListener("DOMContentLoaded", function() {
+        const rows = document.querySelectorAll('tbody tr');
+        rows.forEach(row => {
+            const id = row.getAttribute('data-id');
+            if (localStorage.getItem(id) === 'completed') {
+                row.classList.add('completed');
+            }
+        });
+        calculateProgress();
+    });
+
+    function checkRow(element) {
+        element.classList.toggle('completed');
+        const id = element.getAttribute('data-id');
+        
+        // حفظ الحالة في متصفح الطالب
+        if (element.classList.contains('completed')) {
+            localStorage.setItem(id, 'completed');
+        } else {
+            localStorage.removeItem(id);
+        }
+        
+        calculateProgress();
     }
 
-    function updateProgress() {
-        const totalRows = document.querySelectorAll('tbody tr').length;
-        const completedRows = document.querySelectorAll('tbody tr.completed').length;
+    function calculateProgress() {
+        const total = document.querySelectorAll('tbody tr').length;
+        const checked = document.querySelectorAll('tbody tr.completed').length;
+        const result = Math.round((checked / total) * 100);
         
-        // حساب النسبة المئوية
-        const percentage = Math.round((completedRows / totalRows) * 100);
-        
-        // تحديث شريط الإنجاز والنص
-        document.getElementById('progress-bar').style.width = percentage + '%';
-        document.getElementById('progress-text').innerText = percentage + '%';
+        document.getElementById('progress-filler').style.width = result + '%';
+        document.getElementById('percent-counter').innerText = result + '%';
     }
 </script>
 
